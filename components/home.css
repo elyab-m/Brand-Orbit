@@ -1,0 +1,128 @@
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  background-color: var(--color-gray-100);
+  overflow: hidden;
+}
+
+.hero:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(17, 17, 17, 0.95), rgba(17, 17, 17, 0.7));
+  z-index: 1;
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: var(--color-white);
+  max-width: 650px;
+}
+
+.hero-tagline {
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 3px;
+  margin-bottom: var(--space-2);
+  display: inline-block;
+  color: var(--color-teal-500);
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  margin-bottom: var(--space-3);
+  line-height: 1.1;
+}
+
+.hero-description {
+  font-size: 1.25rem;
+  margin-bottom: var(--space-4);
+  max-width: 550px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.sliding-text {
+  position: relative;
+  height: 65px;
+  overflow: hidden;
+}
+
+.sliding-text-words {
+  display: inline-block;
+  position: relative;
+  color: var(--color-teal-500);
+}
+
+.sliding-text-words span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  animation: rotateWord 8s linear infinite 0s;
+}
+
+.sliding-text-words span:nth-child(2) {
+  animation-delay: 2s;
+}
+
+.sliding-text-words span:nth-child(3) {
+  animation-delay: 4s;
+}
+
+.sliding-text-words span:nth-child(4) {
+  animation-delay: 6s;
+}
+
+@keyframes rotateWord {
+  0% { opacity: 0; transform: translateY(30px); }
+  5% { opacity: 1; transform: translateY(0); }
+  20% { opacity: 1; transform: translateY(0); }
+  25% { opacity: 0; transform: translateY(-30px); }
+  100% { opacity: 0; transform: translateY(-30px); }
+}
+
+/* Media queries */
+@media (max-width: 767px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-description {
+    font-size: 1.1rem;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  
+  .hero-buttons .button {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .sliding-text {
+    height: 50px;
+  }
+}
